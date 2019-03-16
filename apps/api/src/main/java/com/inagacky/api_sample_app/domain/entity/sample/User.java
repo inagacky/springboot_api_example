@@ -1,6 +1,7 @@
 package com.inagacky.api_sample_app.domain.entity.sample;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.inagacky.api_sample_app.util.crypto.SampleAppCryptoEncoder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotNull;
@@ -46,4 +47,18 @@ public class User extends BaseSampleEntity {
 
     @NotNull
     private Status status;
+
+    @NotNull
+    private String email;
+
+    @NotNull
+    private String password;
+
+    /**
+     * ユーザー作成時の初期データ　
+     */
+    public void setInitData() {
+        this.setPassword(SampleAppCryptoEncoder.encrypt(this.getPassword()));
+        this.setStatus(User.Status.VALID);
+    }
 }

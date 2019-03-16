@@ -2,6 +2,8 @@ package com.inagacky.api_sample_app.application.http.request.user;
 
 import com.inagacky.api_sample_app.application.http.request.AbstractApiRequest;
 import lombok.Data;
+
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -15,4 +17,11 @@ public class UserRequest extends AbstractApiRequest implements Serializable {
 
     @NotNull
     private String lastName;
+
+    @NotNull
+    @Email
+    private String email;
+
+    @NotNull
+    private String password;
 }

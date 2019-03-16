@@ -20,6 +20,9 @@ public class UserResponse extends BaseApiResponseResult {
     private String lastName;
 
     @NotNull
+    private String  email;
+
+    @NotNull
     private User.Status status;
 
 }

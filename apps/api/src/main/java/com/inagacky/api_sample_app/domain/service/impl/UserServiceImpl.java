@@ -28,7 +28,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     public void create(User user) throws SampleSQLException {
 
-        user.setStatus(User.Status.VALID);
+        user.setInitData();
         userRepository.save(user);
     }
 }

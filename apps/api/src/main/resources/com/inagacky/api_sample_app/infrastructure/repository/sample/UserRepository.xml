@@ -5,17 +5,20 @@
             parameterType="com.inagacky.api_sample_app.domain.entity.sample.User">
         INSERT INTO users
         (
-        user_id
-        , first_name
+        first_name
         , last_name
         , status
+        , email
+        , password
         , created_at
         , updated_at
         )
         VALUES (
-        , #{firstName}
+        #{firstName}
         , #{lastName}
         , #{status.id}
+        , #{email}
+        , #{password}
         , CURRENT_TIMESTAMP
         , CURRENT_TIMESTAMP
         )
