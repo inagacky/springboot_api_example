@@ -15,6 +15,8 @@ import java.util.Map;
 public class UserRepositoryImpl extends BaseSampleRepositoryImpl implements UserRepository {
 
     /**
+     * ユーザー情報の保存処理　
+     *
      * @param user
      *
      */
@@ -25,6 +27,7 @@ public class UserRepositoryImpl extends BaseSampleRepositoryImpl implements User
         try {
             insertedCnt = getSqlSessionTemplate().insert(
                     "UserRepository.save", user);
+            
         } catch (Exception e) {
             log.error("An error occurred during registration of user information", e);
             throw new SampleSQLException("An error occurred during registration of user information", e);

@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotNull;
 import java.util.Arrays;
 
+/**
+ * User
+ */
 @Data
 @NoArgsConstructor
 public class User extends BaseSampleEntity {

@@ -9,6 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * UserStatusクラスの変換ハンドラ
+ */
 public class UserStatusTypeHandler extends BaseTypeHandler<User.Status> {
 
     @Override

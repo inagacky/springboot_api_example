@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 
 /**
  *
- * 認可のインターセプタ
+ * 認可を行うインターセプタ
  *
  */
 @Slf4j
@@ -49,7 +49,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
     }
 
     /**
-     *
+     * 認可の処理を実施する
      * @param request
      * @param response
      * @param handler
@@ -71,10 +71,19 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
         return true;
     }
 
+    /**
+     * 認可の事前処理　
+     *
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     */
     private boolean preAuthorize(HttpServletRequest request, HttpServletResponse response, Object handler) {
 
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method method = handlerMethod.getMethod();
+        // 特定アノテーションが付いている場合は認証を実施しない
         NonAuth nonCustomerAuthAnnotation = AnnotationUtils.findAnnotation(method, NonAuth.class);
         if (nonCustomerAuthAnnotation != null) {
             log.info(String.format("Exclude NonAuth Check URI[%s]", request.getRequestURI()));
@@ -86,7 +95,8 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
     }
 
     /**
-     *
+     * 認可されていない場合のエラー設定　
+     * 　
      * @param response
      * @param responseErrorCode
      */

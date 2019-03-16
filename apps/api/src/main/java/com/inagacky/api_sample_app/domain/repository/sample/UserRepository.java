@@ -11,6 +11,8 @@ import com.inagacky.api_sample_app.exception.SampleSQLException;
 public interface UserRepository extends BaseSampleRepository {
 
     /**
+     * ユーザー情報の作成
+     *
      * @param user
      *
      */

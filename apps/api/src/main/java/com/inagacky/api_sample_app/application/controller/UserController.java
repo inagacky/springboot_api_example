@@ -33,16 +33,19 @@ public class UserController extends AbstractApiController {
     private UserService userService;
 
     /**
-     * Create User
+     * ユーザー作成
+     * @param userRequest
      */
     @NonAuth
     @PostMapping(value = ApiRoutingConstants.VERSION_1_0+ApiRoutingConstants.USERS_PATH)
     public IApiResponseResult create(@RequestBody @Validated UserRequest userRequest) throws SampleSQLException, IllegalDataException {
 
+        // リクエストモデルをエンティティに変換
         User user = EntityMapper.<UserRequest, User>mappingToEntity(userRequest, User.class);
 
         userService.create(user);
 
+        // エンティティをレスポンスモデルに変換　
         UserResponse userResponse = ResponseResultMapper.<User, UserResponse>mappingToResponseResult(user, UserResponse.class);
 
         return userResponse;

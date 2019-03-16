@@ -20,6 +20,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
     UserRepository userRepository;
 
     /**
+     * ユーザー情報の作成
      *
      * @param user
      *

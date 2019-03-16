@@ -22,7 +22,8 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Exception Handler
+ *
+ * Exceptionのハンドラ　
  *
  */
 @ControllerAdvice
@@ -33,6 +34,7 @@ public class SampleExceptionAdvice {
     MessageSource messageSource;
 
     /**
+     *
      * @param exception
      * @return
      */
@@ -105,7 +107,7 @@ public class SampleExceptionAdvice {
     }
 
     /**
-     *
+     * 例外パターンに対して、エラーコードの設定とメッセージの設定を行う。
      * @param exception
      * @return
      */
@@ -142,6 +144,7 @@ public class SampleExceptionAdvice {
     }
 
     /**
+     * エラーフィールドに対しての詳細設定
      *
      * @param bindingResult
      * @return
@@ -173,7 +176,7 @@ public class SampleExceptionAdvice {
     }
 
     /**
-     *
+     * エラーコードの設定
      * @param errorResponse
      * @param exception
      *
@@ -190,6 +193,7 @@ public class SampleExceptionAdvice {
     }
 
     /**
+     * エラー詳細コードの設定　
      *
      * @param errorDetail
      * @param errorType

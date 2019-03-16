@@ -13,6 +13,10 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
+
+/**
+ * 　Date型のデシリアライザ
+ */
 public class MultiDateDeserializer extends StdDeserializer<Date> {
 
     private static final long serialVersionUID = 1L;
@@ -31,6 +35,15 @@ public class MultiDateDeserializer extends StdDeserializer<Date> {
         super(vc);
     }
 
+    /**
+     * デシリアライズ処理　
+     * 　
+     * @param jsonParser
+     * @param ctxt
+     * @return
+     * @throws IOException
+     * @throws JsonProcessingException
+     */
     @Override
     public Date deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException, JsonProcessingException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);

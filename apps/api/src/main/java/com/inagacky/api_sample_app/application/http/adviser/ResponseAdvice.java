@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 /**
- *
+ * レスポンスに対するアドバイザ　
  */
 @ControllerAdvice
 @Slf4j
@@ -25,6 +25,8 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
     }
 
     /**
+     * レスポンスの形式を変換
+     * 　
      * @param body
      * @param returnType
      * @param selectedContentType
