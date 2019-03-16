@@ -14,9 +14,16 @@ import org.springframework.web.filter.CommonsRequestLoggingFilter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * アプリケーションの設定
+ */
 @Configuration
 public class SampleConfigurer implements WebMvcConfigurer {
 
+    /**
+     * validatorの登録
+     * @return
+     */
     @Bean(name="validator")
     public LocalValidatorFactoryBean localValidatorFactoryBean() {
         LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
@@ -25,6 +32,10 @@ public class SampleConfigurer implements WebMvcConfigurer {
         return localValidatorFactoryBean;
     }
 
+    /**
+     * メッセージ定義ファイルの登録
+     * @return
+     */
     @Bean(name = "messageSource")
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource = new ReloadableResourceBundleMessageSource();
@@ -34,6 +45,10 @@ public class SampleConfigurer implements WebMvcConfigurer {
         return reloadableResourceBundleMessageSource;
     }
 
+    /**
+     * Loggerフィルタの登録
+     * @return
+     */
     @Bean(name = "requestLoggingFilter")
     public CommonsRequestLoggingFilter requestLoggingFilter() {
 
@@ -46,16 +61,28 @@ public class SampleConfigurer implements WebMvcConfigurer {
         return commonsRequestLoggingFilter;
     }
 
+    /**
+     * パスワードエンコーダの登録
+     * @return
+     */
     @Bean(name = "passwordEncoder")
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * モデルマッパーの登録
+     * @return
+     */
     @Bean(name = "modelMapper")
     public ModelMapper modelMapper() {
         return new ModelMapper();
     }
 
+    /**
+     * 認可インターセプタの登録
+     * @return
+     */
     @Bean(name = "authorizationInterceptor")
     public AuthorizationInterceptor authorizationInterceptor() {
         return new AuthorizationInterceptor();
