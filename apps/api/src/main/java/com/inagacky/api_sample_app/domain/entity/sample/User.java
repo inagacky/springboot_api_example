@@ -18,7 +18,7 @@ public class User extends BaseSampleEntity {
 
     public enum Status {
         VALID(1),
-        UNSUBSCRIBE(9)
+        INVALID(9)
         ;
         private final int id;
 

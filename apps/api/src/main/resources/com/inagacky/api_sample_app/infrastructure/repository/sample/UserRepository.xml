@@ -27,4 +27,48 @@
             select @@IDENTITY
         </selectKey>
     </insert>
+
+    <select id="findOneByUserId"
+            parameterType="map"
+            resultType="com.inagacky.api_sample_app.domain.entity.sample.User">
+        SELECT
+          user_id
+        , first_name
+        , last_name
+        , status
+        , email
+        , created_at
+        , updated_at
+        FROM
+          users
+        WHERE
+          user_id = #{userId}
+        ;
+    </select>
+
+    <update id="update"
+            parameterType="com.inagacky.api_sample_app.domain.entity.sample.User">
+        UPDATE
+            users
+        SET
+            first_name = #{firstName},
+            last_name = #{lastName},
+            email = #{email},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+          user_id = #{userId}
+        ;
+    </update>
+
+    <update id="delete"
+            parameterType="com.inagacky.api_sample_app.domain.entity.sample.User">
+        UPDATE
+            users
+        SET
+            status = #{status.id},
+            updated_at = CURRENT_TIMESTAMP
+        WHERE
+          user_id = #{userId}
+        ;
+    </update>
 </mapper>
