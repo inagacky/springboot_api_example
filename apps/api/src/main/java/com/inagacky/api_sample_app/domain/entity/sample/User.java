@@ -3,6 +3,7 @@ package com.inagacky.api_sample_app.domain.entity.sample;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.inagacky.api_sample_app.util.crypto.SampleAppCryptoEncoder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotNull;
 import java.util.Arrays;
@@ -12,6 +13,7 @@ import java.util.Arrays;
  */
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class User extends BaseSampleEntity {
 
     public enum Status {
